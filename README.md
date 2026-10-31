@@ -4,20 +4,16 @@ Codex와 함께 하는 시간제한 개인 작업 킷. 문제·정답·데이터
 
 철학: **읽기 → 사실 확인 → 계획 → 구현 → 같은 명령으로 검증 → 3줄 보고.** 판단은 사람이, 구현은 Codex가, 숫자는 실행 출력이.
 
-## 시험에서 쓰는 법 (2분)
+## 시험에서 쓰는 법 (1분)
 
 ```sh
 git clone https://github.com/letstakeabreak/doremi .kit
-python3 .kit/tools/envcheck.py
+[ -e AGENTS.md ] || cp .kit/AGENTS.md AGENTS.md
 ```
 
-Codex 첫 메시지:
+Codex는 프로젝트 루트의 `AGENTS.md`를 자동으로 읽는다. 첫 메시지는 **`시작`** 한 단어면 된다 — 환경 점검, 템플릿 복사, README·데이터 읽기, TASK.md 초안, 질문 3개, 계획 3~6줄까지 Codex가 하고 승인을 기다린다. 새 세션도 `시작`이면 HANDOFF부터 이어간다.
 
-```text
-.kit/AGENTS.md를 읽고 그대로 따라. 과제 루트는 현재 폴더다.
-.kit/templates/*.md를 .kit/ 아래에 복사해 TASK·DECISIONS·VERIFY·HANDOFF를 시작해(이미 있으면 덮어쓰지 마).
-README와 과제 안내를 읽고 TASK.md에 사실·가정·열린 질문·완료 조건을 정리한 뒤 계획을 3~6줄로 알려.
-```
+과제가 이미 `AGENTS.md`를 주면 덮어쓰지 않는다. 그때 첫 메시지: `.kit/AGENTS.md도 읽고 따라. 시작.`
 
 clone이 막히면 AGENTS.md의 "작업 순서"와 "증거 규칙"만 손으로 타이핑해 `AGENTS.md`로 둔다. 나머지는 없어도 된다.
 
@@ -25,7 +21,7 @@ clone이 막히면 AGENTS.md의 "작업 순서"와 "증거 규칙"만 손으로 
 
 | 경로 | 용도 |
 |---|---|
-| `AGENTS.md` | Codex 지침. 순서·증거·기록·금지. 짧다. |
+| `AGENTS.md` | Codex 지침. 시작 절차·순서·증거·기록·금지. 루트에 복사하면 자동 적용. |
 | `PLAYBOOK.md` | 사람용. 180분 타임라인, 담당자 질문, 제출 체크, 서술형 뼈대. |
 | `RULES.md` | 시험 규정 요약. 당일 아침에 한 번 읽는다. |
 | `templates/` | TASK / DECISIONS / VERIFY / HANDOFF 빈 틀. |

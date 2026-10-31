@@ -8,7 +8,8 @@
 
 ## 1. 0~10분 환경·README (내 터미널)
 ```sh
-git clone https://github.com/letstakeabreak/doremi .kit && python3 .kit/tools/envcheck.py
+git clone https://github.com/letstakeabreak/doremi .kit
+[ -e AGENTS.md ] || cp .kit/AGENTS.md AGENTS.md
 ls -R | head -50; cat README.md
 wc -l data/* 2>/dev/null; head -5 data/* 2>/dev/null
 python3 .kit/tools/csvprofile.py data/<file>.csv
@@ -20,7 +21,7 @@ python3 .kit/tools/csvprofile.py data/<file>.csv
 - README에서 뽑을 5가지: 사용자·결정자 / 필수 기능·필수 파일·경로 / 완료 확인 방법 / 기존 코드·실행법 / 답에 따라 갈리는 질문.
 
 ## 2. 10~30분 계약 (TASK.md)
-Codex 첫 메시지(README.md 참고) → TASK.md 초안 → 내가 읽고 고친다.
+Codex에 `시작` → envcheck·템플릿·README·데이터 읽기·TASK.md 초안·질문 3개·계획까지 자동 → 내가 읽고 고친다. (K0는 이 절차에 포함됐다.)
 사실 / 가정 / 열린 질문을 나눈다.
 실무자 인터뷰 순서(처음 3분엔 '자동화·AI·대시보드' 같은 해법 단어 금지): 최근 사례 1건 → 지금 버티는 방식 → 숫자(빈도·소요·현재값) → 손해 보는 사람과 권한 → 금지·예외 경계 → "정리하면 ①~⑤ 맞을까요?" 확인 DM. 답과 확인 원문을 TASK.md 합의문에 그대로 옮긴다. 실무자는 "할 일 1·2·3으로 정리해 달라"는 거부하고 하나씩만 답한다(사전체험 후기).
 열린 질문 중 **결과가 갈리는 것만** 1~2개씩:
@@ -90,7 +91,7 @@ python3 .kit/tools/submitcheck.py --artifact <필수파일1> --artifact <필수�
 마지막 '답안 제출하고 마치기' → "과제가 잘 제출됐어요" + 제출 ID·시각·파일 수·크기 확인 후 종료.
 
 ## 세션 관리
-- 단계(3·4·5·7)마다 HANDOFF.md 갱신 → Codex `/new` → "`.kit/HANDOFF.md`와 `.kit/TASK.md`를 읽고 이어서". compact 반복 금지.
+- 단계(3·4·5·7)마다 HANDOFF.md 갱신 → Codex `/new` → `시작` (TASK.md가 있으면 HANDOFF부터 이어간다). compact 반복 금지.
 - 같은 실패 3번이면 내가 개입. Codex 응답 대기 중에는 VERIFY·DECISIONS를 쓴다.
 - `/status`로 토큰을 가끔 본다. 큰 파일 통째 읽기 금지.
 
